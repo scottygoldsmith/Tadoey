@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,6 +19,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         //Get Path for UserDefaults
+        
+        print(Realm.Configuration.defaultConfiguration.fileURL)
+
+        do {
+            let realm = try Realm()
+        } catch {
+            print("Error initializing new Realm \(error)")
+        }
+        
         return true
     }
 
@@ -26,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     // MARK: - Core Data stack
     
-    lazy var persistentContainer: NSPersistentContainer = {
+var persistentContainer: NSPersistentContainer = {
         /*
          The persistent container for the application. This implementation
          creates and returns a container, having loaded the store for the
@@ -69,6 +79,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
 
-
 }
+
 
