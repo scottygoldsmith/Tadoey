@@ -58,8 +58,6 @@ class ToDoListViewController: UITableViewController {
         if let item = todoItems?[indexPath.row] {
             do {
                 try realm.write {
-                    // get the date time String from the date object
-                    item.dateCreated = Date()
                     item.done = !item.done
                 }
             } catch {
@@ -105,7 +103,7 @@ class ToDoListViewController: UITableViewController {
         present(alert, animated: true, completion: nil)
     }
     
-    //MARK: - Model Manipulation Methods
+    //MARK: - Data Manipulation Methods
     
     func loadItems() {
         todoItems = selectedCategory?.items.sorted(byKeyPath: "title", ascending: true)

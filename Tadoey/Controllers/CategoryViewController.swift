@@ -73,7 +73,7 @@ class CategoryViewController: UITableViewController {
         present(alert, animated: true, completion: nil)
     }
     
-    //MARK: - Model Manipulation Methods
+    //MARK: - Data Manipulation Methods
     
     func save(category: Category) {
         
